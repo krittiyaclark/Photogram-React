@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class AddPhoto extends Component {
 	// state = {
@@ -53,7 +54,9 @@ class AddPhoto extends Component {
 		console.log(this.props);
 		return (
 			<div>
-				<h1>Photogram</h1>
+				<h1>
+					<Link to='/'>Photogram</Link>
+				</h1>
 				<form className='form' onSubmit={this.handleSubmit}>
 					<input
 						type='text'

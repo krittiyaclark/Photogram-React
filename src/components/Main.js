@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Title from './Title';
@@ -43,7 +43,10 @@ class Main extends Component {
 					path='/'
 					render={() => (
 						<>
-							<Title title={'Photogram'} />
+							<h1>
+								<Link to='/'>Photogram</Link>
+							</h1>
+							{/* <Title title={'Photogram'} /> */}
 							<PhotoLits
 								posts={posts}
 								onRemove={(index) => removePost(index)}
