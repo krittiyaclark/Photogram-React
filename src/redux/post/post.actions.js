@@ -1,7 +1,9 @@
+import * as actionTypes from './post.actionTypes';
+
 // Remove Post
 export const removePost = (index) => {
 	return {
-		type: 'REMOVE_POST',
+		type: actionTypes.REMOVE_POST,
 		index,
 	};
 };
@@ -9,7 +11,7 @@ export const removePost = (index) => {
 // Add post
 export const addPost = (post) => {
 	return {
-		type: 'ADD_POST',
+		type: actionTypes.ADD_POST,
 		post,
 	};
 };

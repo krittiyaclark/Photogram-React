@@ -6,7 +6,7 @@ import Comments from './Comments';
 
 import { addComment } from '../redux/comment/comment.actions';
 
-const SinglePost = ({ posts, params, addComment, comments }) => {
+const SinglePost = ({ posts, params, addComment, comments, postId }) => {
 	console.log(params.match.params.id);
 	console.log(params);
 	console.log(addComment);
@@ -24,6 +24,7 @@ const SinglePost = ({ posts, params, addComment, comments }) => {
 			<Comments
 				addComment={(comments) => addComment(comments)}
 				comments={comments}
+				id={id}
 			/>
 		</div>
 	);
@@ -34,6 +35,7 @@ const mapStateToProps = (state) => {
 	return {
 		posts: state.post.posts,
 		comments: state.comment,
+		postId: state,
 	};
 };
 

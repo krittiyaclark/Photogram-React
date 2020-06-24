@@ -1,14 +1,18 @@
+import * as actionTypes from './comment.actionTypes';
+
 const INITIAL_STATE = {
 	comments: [],
 };
 
 const commentReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
-		case 'ADD_COMMENT':
-			console.log('add comment', action.comment);
+		case actionTypes.ADD_COMMENT:
+			console.log('add comment Id)', action.postId);
+			// console.log('add comment', action.comment);
+
 			return {
 				...state,
-				comments: [...state.comments, action.comment],
+				comments: { ...state.comments, [action.postId]: [action.comment] },
 			};
 
 		// if (!state[action.postId]) {
