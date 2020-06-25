@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Photo = ({ post, onRemove, index }) => {
+const Photo = ({ post, onRemove, index, onHistory }) => {
 	console.log(index);
 	return (
 		<figure className='figure'>
@@ -18,6 +18,7 @@ const Photo = ({ post, onRemove, index }) => {
 					className='remove-button'
 					onClick={() => {
 						onRemove(index);
+						// onHistory.history.push('/');
 					}}>
 					Remove
 				</button>

@@ -11,7 +11,7 @@ export const removePost = (index) => {
 // Add post
 export const addPost = (post) => {
 	return {
-		type: actionTypes.ADD_POST,
+		type: 'ADD_POST',
 		post,
 	};
 };

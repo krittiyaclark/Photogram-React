@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Photo from './Photo';
 
-const PhotoLits = ({ posts, onRemove, otherProps }) => {
-	console.log(posts);
+const PhotoLits = ({ posts, onRemove }) => {
+	console.log(onRemove);
 	return (
 		<>
 			<Link className='addIcon' to='/addPhoto' />
@@ -19,7 +19,6 @@ const PhotoLits = ({ posts, onRemove, otherProps }) => {
 								post={post}
 								onRemove={onRemove}
 								index={index}
-								{...otherProps}
 							/>
 						))}
 			</div>

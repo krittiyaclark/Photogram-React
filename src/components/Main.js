@@ -69,7 +69,12 @@ class Main extends Component {
 
 				<Route
 					path='/single-post/:id'
-					render={(params) => <SinglePost params={params} />}
+					render={(params) => (
+						<SinglePost
+							params={params}
+							onRemove={(index) => removePost(index)}
+						/>
+					)}
 				/>
 			</>
 		);
@@ -80,7 +85,6 @@ const mapStateToProps = (state) => {
 	console.log(state);
 	return {
 		posts: state.post.posts,
-		// comments: state.comment,
 	};
 };
 
