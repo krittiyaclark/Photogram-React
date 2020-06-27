@@ -5,22 +5,24 @@ import { Link } from 'react-router-dom';
 import Photo from './Photo';
 
 const PhotoLits = ({ posts, onRemove }) => {
-	console.log(onRemove);
 	return (
 		<>
 			<Link className='addIcon' to='/addPhoto' />
 			<div className='photo-grid'>
-				{posts &&
+				{posts && posts.length ? (
 					posts
 						.sort((a, b) => b.id - a.id)
-						.map((post, index) => (
+						.map((post, index, history) => (
 							<Photo
 								key={index}
 								post={post}
 								onRemove={onRemove}
 								index={index}
 							/>
-						))}
+						))
+				) : (
+					<p>Post is empty!</p>
+				)}
 			</div>
 		</>
 	);

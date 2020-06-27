@@ -31,6 +31,7 @@ const postReducer = (state = INITIAL_STATE, action) => {
 
 	switch (action.type) {
 		case actionTypes.REMOVE_POST:
+			console.log('remove post', action.index);
 			return { posts: state.posts.filter((data, i) => i !== action.index) };
 		case actionTypes.ADD_POST:
 			console.log('add post', action.post);

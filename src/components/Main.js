@@ -33,8 +33,9 @@ class Main extends Component {
 	// }
 
 	// this.props.dispatch(removeHandle)
+
 	render() {
-		const { posts, removePost, addPost } = this.props;
+		const { posts, comments, removePost, addPost } = this.props;
 		console.log('render');
 		console.log(this.props);
 
@@ -51,7 +52,7 @@ class Main extends Component {
 							{/* <Title title={'Photogram'} /> */}
 							<PhotoLits
 								posts={posts}
-								onRemove={(index) => removePost(index)}
+								onRemove={(index) => removePost(index, comments)}
 							/>
 						</>
 					)}
@@ -85,6 +86,7 @@ const mapStateToProps = (state) => {
 	console.log(state);
 	return {
 		posts: state.post.posts,
+		comments: state.comment.comments,
 	};
 };
 

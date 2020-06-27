@@ -8,6 +8,7 @@ const Comments = ({ addComment, comments, id }) => {
 
 		const comment = event.target.elements.comment.value;
 		addComment(comment, id);
+		event.target.elements.comment.value = '';
 
 		console.log('comment:' + comment, id);
 	};

@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+
+import { connect } from 'react-redux';
+
 import PropTypes from 'prop-types';
 
-const Photo = ({ post, onRemove, index, onHistory }) => {
-	console.log(index);
+const Photo = ({ post, onRemove, index, comments }) => {
+	console.log(post.id);
+
+	// if (post === undefined) {
+	// 	return <Redirect to='/' />;
+	// }
+
 	return (
 		<figure className='figure'>
 			<Link to={`/single-post/${post.id}`}>
@@ -18,13 +27,27 @@ const Photo = ({ post, onRemove, index, onHistory }) => {
 					className='remove-button'
 					onClick={() => {
 						onRemove(index);
-						// onHistory.history.push('/');
 					}}>
 					Remove
 				</button>
+				<Link to={`/single-post/${post.id}`}>
+					<div className='comment-count'>
+						<div className='speech-bubble'>
+							{/* {comments && comments ? comments[post.id].length : 0} */}
+						</div>
+					</div>
+				</Link>
 			</div>
 		</figure>
 	);
+};
+
+const mapStateToProps = (state) => {
+	console.log(state);
+	return {
+		posts: state.post.posts,
+		comments: state.comment.comments,
+	};
 };
 
 Photo.propType = {
@@ -32,4 +55,4 @@ Photo.propType = {
 	// onRemove: PropTypes.func.isRequired,
 };
 
-export default Photo;
+export default withRouter(connect(mapStateToProps)(Photo));
